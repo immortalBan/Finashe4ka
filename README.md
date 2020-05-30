@@ -1,4 +1,4 @@
-<img src=https://sun9-16.userapi.com/c543101/v543101345/6ddca/kkkP5SBWYy8.jpg align="right"/>
+<img src=https://sun9-16.userapi.com/c543101/v543101345/6ddca/kkkP5SBWYy8.jpg width="100" height="120" align="right"/>
 
 # Finashe4ka
 Repo for stuff from university 
