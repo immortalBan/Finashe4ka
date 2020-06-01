@@ -102,6 +102,8 @@ class Expression:
                     result.append(temp)
                     temp = ''
                 result.append(item)
+        if len(temp)!=0:
+            result.append(temp)
         self.expression = result
         
     
@@ -113,7 +115,15 @@ class Expression:
             if item not in self.CHARACTERS:
                 res.append(item)
             elif item != ')':
-                stek.append(item)
+                if item in '+-':
+                    if len(stek) == 0 or stek[-1] not in '*/':
+                        stek.append(item)
+                    else:
+                        res += stek[::-1]
+                        stek = []
+                        stek.append(item)
+                else:
+                    stek.append(item)
             else:
                 index = ''.join(stek).rindex('(')
                 res += stek[index+1:][::-1]
@@ -141,7 +151,20 @@ class Expression:
 
 class MainClass:
     
+    EXPRESSION_LIST = [
+            '2+2',
+            '(2+3)*4',
+            '(7+8)*(2-1)',
+            '(7+8)*(2-1)+7',
+            '(7+8)*(5-2)/(2-1)'
+            ]
+    
     def __init__(self):
+        for exp in self.EXPRESSION_LIST:
+            expression = Expression(exp)
+            print('Результат, полученный с помощью бинарного дерева:\n' + exp, '=', str(expression.get_value()))
+            print('Результат, полученный с помощью функции eval():\n' + exp, '=', eval(exp))
+        
         while True:
             try:
                 raw_expression = input('Введите выражение\n ->')
