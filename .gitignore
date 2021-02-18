@@ -1,0 +1,12 @@
+~$*
+*~
+*.out
+Thumbs.db
+.DS_Store
+.ipynb_checkpoints
+.idea/
+*.css
+*.so
+*.o
+*.pptx
+*.pyc
