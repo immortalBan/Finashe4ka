@@ -1,13 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<link rel="stylesheet" href="./style.css" type="text/css">
+	<title>Регистрация</title>
 </head>
 <body>
-	<h1>Good vibes form</h1>
-	<div class=opros>
-		<p>Tell us something positive that happened to you today</p>
+	<h1>Регистрация</h1>
+	<form name="login">
+		<p>Login</p>
+		<input id="login" type="text" size="40" class="colortext"> 
 		<p>Name</p>
-	</div>
+		<input id="name" type="text" size="40" class="colortext"> 
+		<p>Surname</p>
+		<input id="surname" type="text" size="40" class="colortext"> 
+		<p>Email</p>
+		<input id="email" type="email" size="40" class="colortext"> 
+		<p>Password</p>
+		<input id="pass1" type="password" size="40" class="colortext">
+		<p>Confirm password</p>
+		<input id="pass2" type="password" size="40" class="colortext">
+		<p><input id="elem" type="submit" value="Отправить">
+			<input id="reset" type="reset" value="Очистить"></p>
+		<script>
+			function Logged() {
+  				alert('Logged successfuly!');
+			}
+			elem.onclick = Logged;
+		</script>
+	</form>
 </body>
 </html>
