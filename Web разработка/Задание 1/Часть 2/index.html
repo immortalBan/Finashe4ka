@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="./style.css" type="text/css">
+	<title>Двоичное число</title>
+</head>
+<body>
+	<h1>Двоичное число</h1>
+	<form name="binary">
+		<p>Number</p>
+		<input id="number" type="text" size="40" class="colortext"> 
+		<p><input id="elem" type="button" value="Увеличить"></p>
+		<script>
+			function Square() {
+                var val = document.getElementById('number').value;
+                document.getElementById('number').value = (parseInt(val)**2).toString();
+			}
+			elem.onclick = Square;
+		</script>
+	</form>
+</body>
+</html>
