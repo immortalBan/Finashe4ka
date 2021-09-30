@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel="stylesheet" href="./style.css" type="text/css">
+        <title>Регистрация</title>
+</head>
+<body>
+<form onsubmit="registration()">
+    <h1>
+        Регистрация нового пользователя
+    </h1>
+    <p>
+        Имя
+         <input type="text" id="name" required>
+    </p>
+    <p>
+        Фамилия
+        <input type="text" id="surname" required>
+    </p>
+    <p>
+        Пароль
+        <input type="password" id="pass" required>
+    </p>
+    <p>
+        Подтвердите пароль
+        <input type="password" id="pass_check" required>
+    </p>
+    <p>
+        Пол
+        <select name="pol" id="pol" required>
+            <option value="">Указать</option>
+            <option value="1">Мужской</option>
+            <option value="2">Женский</option>
+        </select>
+    </p>
+    <p>
+        Почта email
+        <input type="email" id="email" required>
+    </p>
+    <p>
+        Дата рождения
+        <input type="date" id="birthdate" required>
+    </p>
+    <p>
+        <input type="submit" value="Регистрация">
+    </p>
+    <script>
+        function registration() {
+  			name = document.getElementById('name').value;
+            surname = document.getElementById('surname').value;
+            password1 = document.getElementById('pass').value;
+            password2 = document.getElementById('pass_check').value;
+            male = document.getElementById('pol').value;
+            email = document.getElementById('email').value;
+            birthdate = document.getElementById('birthdate').value;
+
+            if (password1 == password2){
+                localStorage.setItem('name', '');
+                localStorage.setItem('surname', '');
+                localStorage.setItem('pass', '');
+                localStorage.setItem('pol', '');
+                localStorage.setItem('email', '');
+                localStorage.setItem('birthdate', '');
+                localStorage.setItem('borderColor', '');
+
+                out = `${name} ${surname}, Вы успешно зарегистрировались на нашем сервисе!\nВаш логин для авторизации - ${email}. Дата вашего рождения - ${birthdate}`;
+                alert(out);
+
+            } else {
+                localStorage.setItem('name', name);
+                localStorage.setItem('surname', surname);
+                localStorage.setItem('pass', password1);
+                localStorage.setItem('pol', male);
+                localStorage.setItem('email', email);
+                localStorage.setItem('birthdate', birthdate);
+                localStorage.setItem('borderColor', 'red');
+
+                alert('Пароли не совпадают');
+            }
+		}
+        document.getElementById('name').value = localStorage.getItem('name');
+        document.getElementById('surname').value = localStorage.getItem('surname');
+        document.getElementById('pass').value = localStorage.getItem('pass');
+        document.getElementById('pol').value = localStorage.getItem('pol');
+        document.getElementById('email').value = localStorage.getItem('email');
+        document.getElementById('birthdate').value = localStorage.getItem('birthdate');
+        document.getElementById('pass_check').style.borderColor = localStorage.getItem('borderColor');
+    </script>
+</form>
+</body>
+</html>
