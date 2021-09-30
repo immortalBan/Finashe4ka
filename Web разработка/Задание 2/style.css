@@ -1,0 +1,25 @@
+body {
+    margin: 0 auto;
+    background-color: #F8F8FF;
+    text-align: left;
+    padding: 20px;
+  }
+
+  h1 {
+    text-align: center;
+    color: #2F4F4F;
+  }
+
+  p {
+    color: #2F4F4F;
+  }
+
+  input {
+    background-color: #708090;
+    color: #000000;
+  }
+
+  .colortext {
+    background-color: #FFFFFF;
+  }
+
