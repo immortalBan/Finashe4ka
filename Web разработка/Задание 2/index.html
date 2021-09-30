@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="./style.css" type="text/css">
+	<title>Вариант 24</title>
+</head>
+<body>
+	<h1>Вариант 24</h1>
+    <h2>Выполнил студент группы ПИ19-2 Бедак Иван</h2>
+    <p>24. (а)  кнопка и элемент TEXTAREA
+        (б) Задаются размеры TEXTAREA
+        (в) По кнопке  TEXTAREA заполняется текстом, пословно заданным в массиве
+        </p>
+    <p><form id="static">
+            <p>
+                Сгенерируйте элементы второй формы
+                <input type="button" id="generate" value="Сгенерировать">
+            </p>
+            <p>Задайте размер элемента textarea</p>
+            <p>
+                <input type="number" id="size_text" size="40" class="colortext">
+                <input type="button" id="launch" value="Изменить">
+            </p>
+        </form>
+        <form id="dinamic">
+
+        </form></p>
+        <script>
+            function fill_text(){
+                M = new Array("точный","вода","необходимый","рассматриваться","приказ","танк", "рубль", "быль", "кремлевский");
+                s = "";
+                for (i=0; i<M.length; i++){
+                    s = s + M[i] + " ";
+                }
+                document.getElementById("textarea_form2").innerHTML = s;
+            }
+
+            function generate_form(){
+                s = "<textarea id='textarea_form2' cols='20' rows='10' disabled></textarea>\n";
+                s += "<input type='button' id='form2_generate' value='Заполнить текстом'>";
+                document.getElementById("dinamic").innerHTML = s;
+                form2_generate.onclick = fill_text;
+            }
+
+            function change_size(){
+                new_size = parseInt(document.getElementById('size_text').value);
+                document.getElementById("textarea_form2").cols = new_size * 2;
+                document.getElementById("textarea_form2").rows = new_size;
+            }
+
+            generate.onclick = generate_form;
+            launch.onclick = change_size;
+        </script>
+</body>
+</html>

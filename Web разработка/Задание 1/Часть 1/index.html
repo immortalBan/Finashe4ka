@@ -13,17 +13,35 @@
 		<input id="name" type="text" size="40" class="colortext"> 
 		<p>Surname</p>
 		<input id="surname" type="text" size="40" class="colortext"> 
+		<p>Birthday</p>
+		<input id="birthday" type="date" size="40" class="colortext">
 		<p>Email</p>
 		<input id="email" type="email" size="40" class="colortext"> 
 		<p>Password</p>
 		<input id="pass1" type="password" size="40" class="colortext">
 		<p>Confirm password</p>
 		<input id="pass2" type="password" size="40" class="colortext">
-		<p><input id="elem" type="submit" value="Отправить">
+		<form>
+		<p>Account type</p>
+		<input type="radio" id="bronze" name="account_type" value="bronze">
+		<label for="bronze">Bronze</label><br>
+		<input type="radio" id="silver" name="account_type" value="silver">
+		<label for="silver">Silver</label><br>
+		<input type="radio" id="gold" name="account_type" value="gold">
+		<label for="gold">Gold</label><br>
+		</form>
+		<p><input id="elem" type="button" value="Отправить">
 			<input id="reset" type="reset" value="Очистить"></p>
 		<script>
 			function Logged() {
-  				alert('Logged successfuly!');
+  				var login = document.getElementById('login').value;
+				var name = document.getElementById('name').value;
+				var surname = document.getElementById('surname').value;
+				var email = document.getElementById('email').value;
+				var account_type = document.getElementsById('bronze').value;
+
+				var output = `${name} ${surname}, Вы успешно зарегистрировались на нашем сервисе!\nВаш логин для авторизации - ${login} или ${email}. Тип вашего аккаунта - ${account_type}`;
+				alert(output);
 			}
 			elem.onclick = Logged;
 		</script>
