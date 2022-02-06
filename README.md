@@ -1,3 +1,4 @@
+<img src="https://psv4.userapi.com/c536436/u376457289/docs/d8/40cdd78464da/fa.png?extra=35xsv375uM5SItElzGCHcfCxD4Hw0uyZmGBXU8BZDhcIGPrBugYvrvxPvLZC6sF1d9fHT8Y-Z778LoNmV16HqVyYLehOIBPJ8a3hGFhcPosZ7cB_FKFVZEqXAsgTE87w-1-64vlNTLnoEZT1QpuPx9Y" align="top"/>
 <img src=https://sun9-16.userapi.com/c543101/v543101345/6ddca/kkkP5SBWYy8.jpg width="300" height="360" align="right"/>
 
 # Finashe4ka
