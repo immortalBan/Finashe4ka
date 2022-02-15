@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="./style.css" type="text/css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="key.js"></script>
+    <script>
+        function start(){
+            np = 2941
+            var hr = "https://apidata.mos.ru/v1/datasets/"+np+"/rows?api_key="+key;
+            $.get(hr, function(data){ 
+                data.FullDescription = null
+                localStorage.setItem('data', JSON.stringify(data));
+            });
+            dataset = JSON.parse(localStorage.getItem('data'));
+            new_dataset = new Array();
+            dmin0 = 100; dmax0=-1;
+            wmin0 = 100; wmax0=-1;
+            for (i=0; i<dataset.length; i++){
+                name = dataset[i].Cells.ObjectName;
+                coords = dataset[i].Cells.geoData.coordinates;
+                if (coords[1] < wmin0){
+                    wmin0 = coords[1];
+                }
+                if (coords[1] > wmax0){
+                    wmax0 = coords[1];
+                }
+                if (coords[0] < dmin0){
+                    dmin0 = coords[0];
+                }
+                if (coords[0] > dmax0){
+                    dmax0 = coords[0];
+                }
+                new_dataset.push({'Name': name, 'Coords': coords})
+            }
+            dd = dmax0-dmin0  // по X
+            wd = wmax0-wmin0; // по Y
+            kw = 10000/90;  // км/градус по меридиану 
+            wkm = wd*kw  	// север-юг 42 км 
+            kd = kw*Math.cos(((wmax0+wmin0)/2)*Math.PI/180) // км/градус по параллели 
+            dkm = kd*dd     // восток-запад в км  32
+            kkm = dkm/wkm   // пропорция прям-ка (<1)  
+            ymax = 400; xmax = Math.round(ymax * kkm);
+            ky = ymax/(wmax0-wmin0); kx=xmax/(dmax0-dmin0)
+            function kY(w){return -Math.round(ky*(w-wmin0))} // широта
+            function kX(d){return Math.round(kx*(d-dmin0))} // долгота
+            var canvas = document.getElementById("canvas");
+            var cnt1 = canvas.getContext("2d");
+            with (cnt1){
+                translate(0,ymax);
+                strokeStyle = "#F00";
+                for (var i=0;i<new_dataset.length;i++){
+                    p = new_dataset[i].Coords; 
+                    x = kX(p[0]); y = kY(p[1]);
+                    beginPath()
+                        cnt1.arc(x,y, 2, 0, Math.PI*2);
+                    stroke()
+                }
+                
+            }
+        }
+    </script>
+</head>
+<body onload='start()'>
+    <table border cellspacing=0 cellpadding=5 align='center'>
+        <td valign=top>
+            <canvas id="canvas" width="400" height="400"></canvas>
+        <td valign=top><p align="center">Выполнил студент группы ПИ19-2 Бедак Иван</p>
+            <p align="center">Гео-данные Объектов капитального строительства</p>
+    </table>
+</body>
+</html>

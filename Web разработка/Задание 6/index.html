@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="./style.css" type="text/css">
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
+	<title>Анкета студента</title>
+</head>
+<body>
+	<h1>Анкета студента</h1>
+    <h1>Выполнил Бедак Иван ПИ19-2</h1>
+    <p align='center'>Представить свои данные из задания 4 в JSON-формате.
+        Создать HTML-документ для отображения данных с помощью библиотеки datatablles в 0-й конфигурации
+    </p>
+        <p align='center'>Использовать дополнительные возможности представления данных: Scroll - vertical, dynamic height</p>
+    
+    <table id="table_id" class="display">
+        <thead>
+            <tr>
+                <th>Имя</th>
+                <th>Фамилия</th>
+                <th>Отчество</th>
+                <th>email</th>
+                <th>Дата рождения</th>
+                <th>Курс</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Вероника</td>
+                <td>Соколова</td>
+                <td>Александровна</td>
+                <td>veronikasokolova@mail.ru</td>
+                <td>2001/12/19</td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td>Екатерина</td>
+                <td>Котова</td>
+                <td>Дмитриевна</td>
+                <td>kotova0204@mail.ru</td>
+                <td>2001/04/02</td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td>Татьяна</td>
+                <td>Волкова</td>
+                <td>Алексеевна</td>
+                <td>tolic2001@mail.ru</td>
+                <td>2001/07/12</td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td>Иван</td>
+                <td>Бедак</td>
+                <td>Андреевич</td>
+                <td>ivan.bedak@mail.ru</td>
+                <td>2001/11/02</td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td>Баир</td>
+                <td>Бадмаев</td>
+                <td>Михайлович</td>
+                <td>bairborya@mail.ru</td>
+                <td>2001/05/08</td>
+                <td>3</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        $(document).ready(function() {
+            $('#table_id').DataTable( {
+                scrollY:        '50vh',
+                scrollCollapse: true,
+                paging:         false
+            } );
+        } );
+    </script>
+</body>
+</html>

@@ -1,8 +1,8 @@
 body {
-    width: 800px;
     margin: 0 auto;
     background-color: #F8F8FF;
     text-align: left;
+    padding: 20px;
   }
 
   h1, h2 {
@@ -15,18 +15,10 @@ body {
   }
 
   input {
-    background-color: #c0d7ee;
+    background-color: #708090;
     color: #000000;
   }
 
   .colortext {
     background-color: #FFFFFF;
-  }
-
-  .search {
-    margin-top: 50px;
-  }
-
-  th.ans {
-    vertical-align: top;
   }

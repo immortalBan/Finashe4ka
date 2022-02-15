@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body onload='task()'>
+    <h3 align="center">Выполнил студент группы ПИ19-2 Бадмаев Баир</h3>
+    <h3 align="center">Написать скрипт, выполняемый при загрузке документа, который генерирует таблицу N x M, заполненную случайными числами от 0 до 9.</h3>
+    <h3 align="center">Числа N и M вводятся с помощью prompt.</h3>
+
+    <div align="center">
+        <table id='table' border cellspacing=0 cellpadding=5 align='center'>
+        </table>
+    </div>
+    <script>
+        function task(){
+            m = prompt('Введите число M', 10);
+            n = prompt('Введите число N', 10);
+            s = "";
+            for(i=0; i<n; i++){
+                s += '<tr>'
+                for(j=0; j<m; j++){
+                    s += '<td>' + (Math.floor(Math.random() * 10)).toString() + '</td>';
+                }
+                s += '</tr>'
+            }
+            document.getElementById("table").innerHTML = s
+
+        }
+    </script>
+</body>

@@ -1,0 +1,44 @@
+{
+  "users": [
+    {
+      "name": "Вероника",
+      "surname": "Соколова",
+      "middle_name": "Александровна",
+      "email": "veronikasokolova@mail.ru",
+      "birthdate": "2001/12/19",
+      "kurs": "3"
+    },
+    {
+      "name": "Екатерина",
+      "surname": "Котова",
+      "middle_name": "Дмитриевна",
+      "email": "kotova0204@mail.ru",
+      "birthdate": "2001/04/02",
+      "kurs": "3"
+    },
+    {
+      "name": "Татьяна",
+      "surname": "Волкова",
+      "middle_name": "Алексеевна",
+      "email": "tolic2001@mail.ru",
+      "birthdate": "2001/07/12",
+      "kurs": "3"
+    },
+    {
+      "name": "Иван",
+      "surname": "Бедак",
+      "middle_name": "Андреевич",
+      "email": "ivan.bedak@mail.ru",
+      "birthdate": "2001/11/02",
+      "kurs": "3"
+    },
+    {
+      "name": "Баир",
+      "surname": "Бадмаев",
+      "middle_name": "Михайлович",
+      "email": "bairborya@mail.ru",
+      "birthdate": "2001/05/08",
+      "kurs": "3"
+    }
+  ]
+}

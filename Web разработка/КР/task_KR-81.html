@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Задача 81</title>
+</head>
+<body>
+    <p align="center">Задача к зачету № 81</p>
+    <p align="center">Выполнил студент группы ПИ19-2 Бедак Иван</p>
+    <p align="center">При прохождении курсора мыши над гиперсылкой заполнять поля с протоколом, именем сервера, портом и параметрами данной гиперссылки.</p>
+    <br>
+    <table border cellspacing=0 cellpadding=5>
+        <tr>
+            <td>Протокол</td>
+            <td><textarea id='protocol' disabled></textarea></td>
+        </tr>
+        <tr>
+            <td>Имя сервера</td>
+            <td><textarea id='name' disabled></textarea></td>
+        </tr>
+        <tr>
+            <td>Порт</td>
+            <td><textarea id='port' disabled></textarea></td>
+        </tr>
+        <tr>
+            <td>Параметры</td>
+            <td><textarea id='parameters' disabled></textarea></td>
+        </tr>
+    </table>
+
+    <br>
+    <ul>
+        <li><a href="https://cdn.datatables.net/1.11.3/" onmouseover="set_args(this.href)">https://cdn.datatables.net/1.11.3/</a></li>
+        <li><a href="https://jsfiddle.net/uLyhb61n/" onmouseover="set_args(this.href)">https://jsfiddle.net/uLyhb61n/</a></li>
+        <li><a href="https://www.youtube.com/watch?v=L384Cd427yw" onmouseover="set_args(this.href)">https://www.youtube.com/watch?v=L384Cd427yw</a></li>
+        <li><a href="https://edu.1cfresh.com/" onmouseover="set_args(this.href)">https://edu.1cfresh.com/</a></li>
+        <li><a href="https://hh.ru/search/vacancy" onmouseover="set_args(this.href)">https://hh.ru/search/vacancy</a></li>
+        <li><a href="https://python.hotexamples.com/" onmouseover="set_args(this.href)">https://python.hotexamples.com/</a></li>
+        <li><a href="https://ru.wikipedia.org/wiki/HTTP" onmouseover="set_args(this.href)">https://ru.wikipedia.org/wiki/HTTP</a></li>
+        <li><a href="http://site.com:8080/path/page?p1=v1&p2=v2#hash" onmouseover="set_args(this.href)">http://site.com:8080/path/page?p1=v1&p2=v2#hash</a></li>
+        <li><a href="https://google.com/search?query=JavaScript" onmouseover="set_args(this.href)">https://google.com/search?query=JavaScript</a></li>
+    </ul>
+    <script>
+        function set_args(url){
+            obj = new URL(url);
+            document.getElementById('protocol').innerHTML = obj.protocol;
+            document.getElementById('name').innerHTML = obj.hostname;
+            document.getElementById('port').innerHTML = obj.port;
+            document.getElementById('parameters').innerHTML = obj.search;
+        }
+    </script>
+</body>

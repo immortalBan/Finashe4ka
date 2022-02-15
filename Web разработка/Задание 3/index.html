@@ -7,44 +7,60 @@
 </head>
 <body>
 <form onsubmit="registration()">
+    <h2>Выполнил студент Бедак Иван</h2>
     <h1>
         Регистрация нового пользователя
     </h1>
-    <p>
-        Имя
-         <input type="text" id="name" required>
-    </p>
-    <p>
-        Фамилия
-        <input type="text" id="surname" required>
-    </p>
-    <p>
-        Пароль
-        <input type="password" id="pass" required>
-    </p>
-    <p>
-        Подтвердите пароль
-        <input type="password" id="pass_check" required>
-    </p>
-    <p>
-        Пол
-        <select name="pol" id="pol" required>
-            <option value="">Указать</option>
-            <option value="1">Мужской</option>
-            <option value="2">Женский</option>
-        </select>
-    </p>
-    <p>
-        Почта email
-        <input type="email" id="email" required>
-    </p>
-    <p>
-        Дата рождения
-        <input type="date" id="birthdate" required>
-    </p>
-    <p>
-        <input type="submit" value="Регистрация">
-    </p>
+    <table class='big' width="100%" cellpadding="10">
+        <tr>
+            <th>
+    <table width="100%" cellpadding="0">
+        <tr>
+            <th>
+                <p>Имя
+                <br><input type="text" id="name" required></p>
+            </th>
+            <th>
+                <p>Пароль
+                <br><input type="password" id="pass" required></p>
+            </th>
+        </tr>
+        <tr>
+            <th>
+                <p>Фамилия
+                <br><input type="text" id="surname" required></p>
+            </th>
+            <th>
+                <p>Подтвердите пароль
+                <br><input type="password" id="pass_check" required></p>
+            </th>
+        </tr>
+        <tr>
+            <th>
+                <p>Почта email
+                <br><input type="email" id="email" required></p>
+            </th>
+            <th>
+                <p>Дата рождения
+                <br><input type="date" id="birthdate" required></p>
+            </th>
+        </tr>
+        <tr>
+            <th>
+                <p>Пол
+                <br><select name="pol" id="pol" required>
+                    <option value="1">Мужской</option>
+                    <option value="2">Женский</option>
+                </select>
+                </p>
+            </th>
+        </tr>
+        <tr>
+            <th>
+                <p><input type="submit" value="Регистрация"></p>
+            </th>
+        </tr>
+    </table>
     <script>
         function registration() {
   			name = document.getElementById('name').value;
@@ -56,6 +72,9 @@
             birthdate = document.getElementById('birthdate').value;
 
             if (password1 == password2){
+
+                user = JSON.stringify({'name': name, 'surname': surname, 'pass': pass, 'male': male, 'email': email, 'birthdate': birthdate});
+
                 localStorage.setItem('name', '');
                 localStorage.setItem('surname', '');
                 localStorage.setItem('pass', '');
@@ -63,6 +82,7 @@
                 localStorage.setItem('email', '');
                 localStorage.setItem('birthdate', '');
                 localStorage.setItem('borderColor', '');
+                localStorage.setItem(email, user)
 
                 out = `${name} ${surname}, Вы успешно зарегистрировались на нашем сервисе!\nВаш логин для авторизации - ${email}. Дата вашего рождения - ${birthdate}`;
                 alert(out);
@@ -88,5 +108,41 @@
         document.getElementById('pass_check').style.borderColor = localStorage.getItem('borderColor');
     </script>
 </form>
+</th>
+<th class='ans'>
+<div class='search'>
+    <p> Логин
+        <br><input type='email' id='login_search'>
+        <input type='button' id='search' value='Найти'>
+    </p>
+    <p id='result'>
+
+    </p>
+</div>
+</th>
+</tr>
+</table>
+<script>
+    function search_login(){
+        login = document.getElementById('login_search').value;
+
+        info = localStorage.getItem(login);
+        if (info !== null){
+            user = JSON.parse(info);
+
+            s = ''
+            s += '<br>Имя - ' + user.name + '\n\t';
+            s += '<br>Фамилия - ' + user.surname + '\n\t';
+            s += '<br>Email - ' + user.email + '\n\t';
+            s += '<br>Дата рождения - ' + user.birthdate + '\n';
+
+            document.getElementById('result').innerHTML = s;
+        } else  {
+            alert('Такого пользователя не существует');
+        }
+    }
+
+    search.onclick = search_login;
+</script>
 </body>
 </html>
