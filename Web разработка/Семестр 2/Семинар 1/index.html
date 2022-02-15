@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Быстрый старт. Размещение интерактивной карты на странице</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=53c142ef-4e1e-4ade-9814-0902b4b0d619&lang=ru_RU"
+        type="text/javascript">
+        </script>
+    <script type="text/javascript">
+
+        var myMap;
+        var myRoot;
+
+        ymaps.ready(init);
+        function init() {
+            myMap = new ymaps.Map("map", {
+                center: [48, 37.48],
+                zoom: 10,
+                controls: ['zoomControl', 'typeSelector']
+            });
+        }
+
+        function makeRoot(pointFrom, pointTo, modeRoot) {
+            myRoot = new ymaps.multiRouter.MultiRoute({ 
+                referencePoints: [
+                    pointFrom,
+                    pointTo
+                ],
+                params: {
+                    avoidTrafficJams: true,
+                    routingMode: modeRoot
+                }
+            }, {
+                
+                boundsAutoApply: true,
+                //Внешний вид линии
+                routeActiveStrokeWidth: 5,
+                routeActiveStrokeStyle: 'solid',
+                routeActiveStrokeColor: '#0FFFF0'
+            });
+
+            // Добавление маршрута на карту.
+            myMap.geoObjects.add(myRoot);
+
+            myRoot.model.events.add('requestsuccess', function(){
+                var activeRoot = myRoot.getActiveRoute();
+                activeRoot.baloon.open();
+                activeRoot.properties.get('distance');
+                activeRoot.properties.get('duration');
+            })
+        }
+
+        function clearMap() {
+            myMap.geoObjects.removeAll();
+            myRoot && myMap.geoObjects.remove(myRoot);
+        }
+    </script>
+    <style>
+        html {
+            height: 100%;
+        }
+
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        input {
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <p>
+        <input type="button" value="Построить маршрут", onclick="makeRoot('Подмосковный бульвар, д.9', 'Электросталь, Жулябина, д.27', 'auto')">
+        <input type="button" value="Очистить карту", onclick="clearMap()">
+    </p>
+    <div id="map" style="width: 99.5%; height: 90%"></div>
+</body>
+
+</html>
