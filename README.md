@@ -1,4 +1,4 @@
-<img src="https://psv4.userapi.com/c536436/u376457289/docs/d8/40cdd78464da/fa.png?extra=35xsv375uM5SItElzGCHcfCxD4Hw0uyZmGBXU8BZDhcIGPrBugYvrvxPvLZC6sF1d9fHT8Y-Z778LoNmV16HqVyYLehOIBPJ8a3hGFhcPosZ7cB_FKFVZEqXAsgTE87w-1-64vlNTLnoEZT1QpuPx9Y" align="top"/>
+<img src="https://github.com/GeorgiyDemo/FA/blob/img/fa.png" align="top"/>
 
 # Finashe4ka
 Repo for stuff from university 
