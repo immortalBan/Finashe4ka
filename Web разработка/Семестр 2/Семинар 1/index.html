@@ -21,7 +21,10 @@
             });
         }
 
-        function makeRoot(pointFrom, pointTo, modeRoot) {
+        function makeRoot() {
+            clearMap();
+            pointFrom = document.getElementById('pointFrom').value;
+            pointTo = document.getElementById('pointTo').value;
             myRoot = new ymaps.multiRouter.MultiRoute({ 
                 referencePoints: [
                     pointFrom,
@@ -29,7 +32,7 @@
                 ],
                 params: {
                     avoidTrafficJams: true,
-                    routingMode: modeRoot
+                    routingMode: 'auto'
                 }
             }, {
                 
@@ -75,8 +78,12 @@
 
 <body>
     <p>
-        <input type="button" value="Построить маршрут", onclick="makeRoot('Подмосковный бульвар, д.9', 'Электросталь, Жулябина, д.27', 'auto')">
-        <input type="button" value="Очистить карту", onclick="clearMap()">
+        <input type="text" id="pointFrom" placeholder="Откуда">
+        <input type="text" id="pointTo" placeholder="Куда">
+    </p>
+    <p>
+        <input type="button" value="Построить маршрут" onclick="makeRoot()">
+        <input type="button" value="Очистить карту" onclick="clearMap()">
     </p>
     <div id="map" style="width: 99.5%; height: 90%"></div>
 </body>
