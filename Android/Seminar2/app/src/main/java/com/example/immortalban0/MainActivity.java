@@ -25,6 +25,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        mainTextView.setText("Вы нажали на кнопку");
+        mainTextView.setText("Вы нажали на кнопку!");
     }
 }
