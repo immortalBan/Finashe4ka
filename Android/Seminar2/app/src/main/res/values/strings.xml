@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Бедак Иван Семинар 2</string>
+    <string name="greetings">Изначальный текст</string>
+    <string name="button">Изменить текст</string>
+</resources>
