@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Бедак Иван Семинар 5</string>
+    <string name="greetings">Угадай число!</string>
+    <string name="button">Добавить в список</string>
+    <string name="hint">Введи число</string>
+    <string name="sub">Введите число от 1 до 100</string>
+</resources>

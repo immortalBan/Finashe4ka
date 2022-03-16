@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="click_me">Нажми меня</string>
+    <string name="main_text">Кликов: 0</string>
+    <string name="inc_btn">Уменьшить</string>
+    <string name="reset_btn">Сбросить</string>
+</resources>
