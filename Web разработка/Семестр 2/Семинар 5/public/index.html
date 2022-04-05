@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Скоринг</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <form action="http://localhost:3000/scoring" method="POST">
+    <h1>Форма для заполнения</h1>
+    <p><i>Пожалуйста, заполните форму</i></p>
+    <fieldset>
+      <legend>Контактная информация</legend>
+      <label for="name">Имя и фамилия <em>*</em></label>
+      <input type="text" name="name" placeholder="Джеймс Бонд" autofocus required><br>
+      <label for="telephone">Номер телефона</label>
+      <input type="text" name="telephone" placeholder="(XXX)XXX-XX-XX"><br>
+      <label for="email">Электронная почта <em>*</em></label>
+      <input type="text" name="email" placeholder="bond@gmail.com" required><br>
+    </fieldset>
+    <fieldset>
+      <legend>Данные для проверки</legend>
+      <label for="gender">Пол</label>
+      <select name="gender" id="gender">
+        <option value="male">Мужской</option>
+        <option value="female">Женский</option>
+      </select><br>
+      <label for="birthDate">Дата рождения <em>*</em></label>
+      <input type="date" name="birthDate" id="birthDate" required><br>
+      <label for="periodLife">Срок проживания в регионе (лет) <em>*</em></label>
+      <input type="number" name="periodLife" id="periodLife" min="0" max="100" required><br>
+      <label for="profession">Профессия</label>
+      <select name="profession" id="profession">
+        <option value="driver">Водитель</option>
+        <option value="policeman">Полицейский</option>
+        <option value="pilot">Пилот</option>
+        <option value="manager">Менеджер</option>
+        <option value="judge">Судья</option>
+        <option value="developer">Программист</option>
+        <option value="teacher">Преподаватель</option>
+      </select><br>
+      <label for="sphere">Сфера деятельности</label>
+      <select name="sphere" id="sphere">
+        <option value="public">Общественная</option>
+        <option value="other">Другая</option>
+      </select><br>
+      <label for="periodWork">Период работы в организации <em>*</em></label>
+      <input type="number" name="periodWork" id="periodWork" min="0" max="50" required><br>
+      <label for="bankAccount">Наличие банковского счета</label>
+      <input type="checkbox" name="bankAccount" id="bankAccount"><br>
+      <label for="realEstate">Наличие недвижимости</label>
+      <input type="checkbox" name="realEstate" id="realEstate"><br>
+      <label for="insurancePolicy">Наличие страхового полиса</label>
+      <input type="checkbox" name="insurancePolicy" id="insurancePolicy"><br>
+    </fieldset>
+    <input type="submit" value="Отправить на обработку">
+  </form>
+</body>
+
+</html>

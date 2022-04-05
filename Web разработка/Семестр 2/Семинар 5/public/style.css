@@ -1,0 +1,53 @@
+textarea:required:invalid, input:required:invalid {background-color: rgb(217, 235, 198);}
+body {
+  font-family:'Palatino Linotype', serif;
+  max-width: 650px;
+  padding: 0px 30px;
+}
+h1 {margin-bottom: 0px;}
+
+p {margin-top: 0px;}
+
+fieldset {
+  margin-bottom: 15px;
+  padding: 10px;
+}
+
+legend {
+  padding: 0px 3px;
+  font-weight: bold;
+  font-variant: small-caps;
+}
+
+label {
+  width: 280px;
+  display: inline-block;
+  vertical-align: top;
+  margin: 6px;
+}
+
+em  {
+  font-weight: bold;
+  font-style: normal;
+  color: #f00;
+}
+
+input:focus {background: #eaeaea;}
+
+input, textarea {width: 289px;}
+
+textarea {height: 100px;}
+
+select {width: 295px;}
+
+input[type=checkbox] {
+  width: 10px;
+  transform: scale(2.0);
+}
+
+input[type=submit] {
+  width: 250px;
+  padding: 10px;
+  float: right;
+  font-size: medium;
+}
