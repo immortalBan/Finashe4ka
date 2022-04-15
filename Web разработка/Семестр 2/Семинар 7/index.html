@@ -1,0 +1,53 @@
+<!DOCTYPE html> 
+<html> 
+
+<head> 
+<meta charset="utf-8"> 
+<meta name="viewport" content="width=device-width"> 
+<title>Currency</title> 
+<link href="style.css" rel="stylesheet" type="text/css" /> 
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet"> 
+</head> 
+
+<body> 
+<h1> Сервис для мониторинга курса валют</h1> 
+<div id = 'block'> 
+<label for="select">Выберите валюту</label> 
+<select name="select" id="select" onchange="getRate()"> 
+<option value="">не выбрано</option> 
+<option value="USD">доллар США (USD)</option> 
+<option value="EUR">евро (EUR)</option> 
+<option value="CNY">китайский юань (CNY)</option> 
+</select><br> 
+<label for="rate">Курс: </label> 
+<span id="rate">0</span> 
+<!--input type="number" name="rate" id="rate" readonly><br--> 
+</div> 
+
+<script> 
+async function getRate() { 
+let curr = document.getElementById('select').value 
+let url = "https://locallhost:3000/get" + curr; 
+
+// 1 Вариант 
+// fetch(url) 
+// .then((res)=>{ 
+// return res.json(); 
+// }) 
+// .then((data)=>{ 
+// let course = data['Valute'][curr]['Value']; 
+// document.getElementById('rate').innerText = course; 
+// }); 
+
+// 2 Variant 
+let response = await fetch(url); 
+let data = await response.json(); 
+let course = data['value']; 
+document.getElementById('rate').innerText = course; 
+
+}; 
+</script> 
+
+</body> 
+
+</html>
