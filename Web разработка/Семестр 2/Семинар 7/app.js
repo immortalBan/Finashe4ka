@@ -24,8 +24,7 @@ app.get("/get/:val", (req, res) => {
       response = await axios("https://www.cbr-xml-daily.ru/daily_json.js");
     } catch (error) {
       response = null;
-      // console.log(error);
-      // reject(error);
+
     }
     if (response) {
       const json = response.data;
