@@ -5,6 +5,7 @@ const port = 3000;
 const server = require("http").createServer(app);
 const path = require("path");
 const MongoClient = require("mongodb").MongoClient;
+
 app.get("/", (req, res) => {
   res.sendFile(path.resolve(__dirname) + "/index.html");
 });
